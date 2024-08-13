@@ -1,4 +1,4 @@
-package brevo_sms;
+package sib_sms;
 
 import sendinblue.*;
 import sendinblue.auth.*;

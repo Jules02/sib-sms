@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>eres-group</groupId>
-  <artifactId>brevo-sms</artifactId>
+  <artifactId>sib-sms</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>brevo-sms</name>
+  <name>Sendinblue SMS extension</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -50,7 +50,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>org.eres-group.brevo_sms.App</mainClass>
+              <mainClass>org.eres-group.sib_sms.App</mainClass>
             </manifest>
           </archive>
         </configuration>
