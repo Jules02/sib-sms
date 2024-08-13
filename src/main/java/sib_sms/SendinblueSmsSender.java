@@ -8,16 +8,19 @@ import sibApi.TransactionalSmsApi;
 import sibModel.SendSms;
 import sibModel.SendTransacSms;
 
-import java.util.logging.Logger;
+import org.jboss.logging.Logger;
 
 public class SendinblueSmsSender {
-    private static final Logger LOGGER = Logger.getLogger(SendinblueSmsSender.class.getPackage().getName());
+
+    private static final Logger LOGGER = Logger.getLogger(SendinblueSmsSender.class);
     private ApiClient apiClient;
 
     public static SendinblueSmsSender create()
     {
         return new SendinblueSmsSender();
     }
+
+    // TODO: Improve exceptions handling
 
     /**
      * Sends an SMS using Sendinblue (now Brevo) API.
@@ -41,11 +44,11 @@ public class SendinblueSmsSender {
 
         try {
             SendSms result = api.sendTransacSms(sendTransacSms);
-            LOGGER.info(result.toString());
+            LOGGER.infof(result.toString());
         } catch (ApiException e) {
             // NOTE: Ok d'afficher le numéro en clair dans le log ??
-            LOGGER.severe(String.format("Unable to send transactional SMS for user '%s'", recipient));
-            LOGGER.severe(e.getMessage());
+            LOGGER.errorf("Unable to send transactional SMS for user '%s'", recipient);
+            LOGGER.errorf(e.getMessage());
             throw e;
         }
     }
@@ -58,7 +61,7 @@ public class SendinblueSmsSender {
      */
     public SendinblueSmsSender setApiKey(String apiKey)
     {
-        LOGGER.info("setApiKey(apiKey='*******') has been invoked");
+        LOGGER.infof("setApiKey(apiKey='*******') has been invoked");
 
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         ApiKeyAuth apiKeyAuth = (ApiKeyAuth)apiClient.getAuthentication("api-key");

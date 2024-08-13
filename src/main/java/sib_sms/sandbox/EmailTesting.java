@@ -1,4 +1,4 @@
-package sib_sms;
+package sib_sms.sandbox;
 
 import sendinblue.*;
 import sendinblue.auth.*;
