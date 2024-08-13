@@ -1,4 +1,4 @@
-package jar;
+package brevo_sms;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

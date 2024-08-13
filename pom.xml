@@ -21,12 +21,21 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.sendinblue</groupId>
+      <artifactId>sib-api-v3-sdk</artifactId>
+      <version>7.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.github.cdimascio</groupId>
+      <artifactId>dotenv-java</artifactId>
+      <version>3.0.0</version>
+    </dependency>
   </dependencies>
 
   <build>
     <pluginManagement>
       <plugins>
-        <!-- Plugin responsable de la génération du fichier JAR -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
@@ -40,9 +49,8 @@
         <artifactId>maven-jar-plugin</artifactId>
         <configuration>
           <archive>
-            <!-- Création du Manifest pour la définition de la classe Main -->
             <manifest>
-              <mainClass>org.exemple.demo.App</mainClass>
+              <mainClass>org.eres-group.brevo_sms.App</mainClass>
             </manifest>
           </archive>
         </configuration>
