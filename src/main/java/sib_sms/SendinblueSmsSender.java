@@ -25,6 +25,12 @@ public class SendinblueSmsSender {
     /**
      * Sends an SMS using Sendinblue (now Brevo) API.
      *
+     * @param sender        the name of the sender. The number of characters is limited to 11 for alphanumeric characters and 15 for numeric characters.
+     * @param recipient     a String containing the mobile number to send SMS with the country code.
+     * @param content       the content of the message.
+     *
+     * @see <a href="https://developers.brevo.com/docs/transactional-sms-endpoints">Brevo's doc</a> for further information.
+     *
      * @throws ApiException with message from Sendinblue's {@link ApiException} (for example:
      *             'Unauthorized' when API key is invalid or
      *             'Not Found' when template couldn't be found.)
