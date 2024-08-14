@@ -25,7 +25,7 @@ public class SendinblueSmsSender {
     /**
      * Sends an SMS using Sendinblue (now Brevo) API.
      *
-     * @throws Exception with message from Sendinblue's {@link ApiException} (for example:
+     * @throws ApiException with message from Sendinblue's {@link ApiException} (for example:
      *             'Unauthorized' when API key is invalid or
      *             'Not Found' when template couldn't be found.)
      */
@@ -54,18 +54,16 @@ public class SendinblueSmsSender {
     }
 
     /**
-     * Sets the API key and update the default client.
+     * Sets the API key and update the API client.
      *
      * @param apiKey api-key to use sendinblue API
-     * @return this instance
      */
-    public SendinblueSmsSender setApiKey(String apiKey)
+    public void setApiKey(String apiKey)
     {
         LOGGER.infof("setApiKey(apiKey='*******') has been invoked");
 
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth)apiClient.getAuthentication("api-key");
+        apiClient = Configuration.getDefaultApiClient();
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) apiClient.getAuthentication("api-key");
         apiKeyAuth.setApiKey(apiKey);
-        return this;
     }
 }

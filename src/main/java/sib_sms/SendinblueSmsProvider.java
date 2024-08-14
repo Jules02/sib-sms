@@ -1,6 +1,7 @@
 package sib_sms;
 
 import org.jboss.logging.Logger;
+import sendinblue.ApiException;
 
 public class SendinblueSmsProvider {
 
@@ -15,7 +16,7 @@ public class SendinblueSmsProvider {
         LOGGER.infof("Instantiated %s", getClass().getSimpleName());
     }
 
-    public void send(String sender, String recipient, String content) throws Exception {
+    public void send(String sender, String recipient, String content) throws ApiException {
         sendinblueSmsSender.postToSendinblue(
                 sender,
                 recipient,
