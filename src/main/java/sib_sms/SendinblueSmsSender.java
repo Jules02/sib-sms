@@ -20,7 +20,7 @@ public class SendinblueSmsSender {
         return new SendinblueSmsSender();
     }
 
-    // TODO: Improve exceptions handling
+    // TODO: Refactor exceptions handling
 
     /**
      * Sends an SMS using Sendinblue (now Brevo) API.
@@ -54,8 +54,8 @@ public class SendinblueSmsSender {
         } catch (ApiException e) {
             // NOTE: Ok d'afficher le numéro en clair dans le log ??
             LOGGER.errorf("Unable to send transactional SMS for user '%s'", recipient);
-            LOGGER.errorf(e.getMessage());
-            throw e;
+            // See https://developers.brevo.com/docs/how-it-works for HTTP response codes
+            LOGGER.errorf("Response with HTTP status code %s and the following body: %s", e.getCode(), e.getResponseBody());
         }
     }
 
