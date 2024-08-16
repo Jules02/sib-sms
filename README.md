@@ -1,6 +1,6 @@
 # Brevo (ex Sendinblue) transactional SMS sender Java module
 
-Send transactional SMS with Brevo's (ex Sendinblue) API v3 Java Library.
+Send transactional SMS with Brevo (ex Sendinblue) API v3 Java Library.
 
 ### Configuration
 
@@ -26,7 +26,7 @@ A file `target/sib-sms-1.0-SNAPSHOT.jar` should be created. Note that I am using
 
 See `src/main/java/sib_sms/App.java` for usage example.
 
-According to [Brevo's doc](https://developers.brevo.com/docs/transactional-sms-endpoints), follow these requirements for SMS messages attributes:
+According to [Brevo doc](https://developers.brevo.com/docs/transactional-sms-endpoints), follow these requirements for SMS messages attributes:
 
 | Attribute name      | Datatype | Description                                                                                                                                                               | Value                                               |
 |---------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
@@ -38,3 +38,8 @@ According to [Brevo's doc](https://developers.brevo.com/docs/transactional-sms-e
 | webUrl              | Url      | Webhook to call for each event triggered by the message (delivered etc.)                                                                                                   | `http://requestb.in/173lyyx1`                       |
 | unicodeEnabled      | Boolean  | Format of the message. It indicates whether the content should be treated as unicode or not.                                                                               | Boolean true or false                               |
 | organisationPrefix  | String   | A recognizable prefix will ensure your audience knows who you are. Recommended by U.S. carriers. This will be added as your Brand Name before the message content. Prefer verifying maximum length of 160 characters including this prefix in message content to avoid multiple sending of same sms. | Brand name like **My Company**                      |
+
+### Ressources
+* [Brevo documentation](https://developers.brevo.com/)
+* [Brevo API v3 Java Library](https://github.com/sendinblue/APIv3-java-library)
+

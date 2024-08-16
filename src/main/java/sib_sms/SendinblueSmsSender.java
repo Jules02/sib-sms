@@ -52,7 +52,6 @@ public class SendinblueSmsSender {
             SendSms result = api.sendTransacSms(sendTransacSms);
             LOGGER.infof(result.toString());
         } catch (ApiException e) {
-            // NOTE: Ok d'afficher le numéro en clair dans le log ??
             LOGGER.errorf("Unable to send transactional SMS for user '%s'", recipient);
             // See https://developers.brevo.com/docs/how-it-works for HTTP response codes
             LOGGER.errorf("Response with HTTP status code %s and the following body: %s", e.getCode(), e.getResponseBody());
