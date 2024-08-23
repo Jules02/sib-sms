@@ -16,11 +16,12 @@ public class SendinblueSmsProvider {
         LOGGER.infof("Instantiated %s", getClass().getSimpleName());
     }
 
-    public void send(String sender, String recipient, String content) throws ApiException {
+    public void send(String sender, String recipient, String content, boolean hideResponsePayload) throws ApiException {
         sendinblueSmsSender.postToSendinblue(
                 sender,
                 recipient,
-                content
+                content,
+                hideResponsePayload
         );
     }
 }

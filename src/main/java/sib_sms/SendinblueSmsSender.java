@@ -15,10 +15,7 @@ public class SendinblueSmsSender {
     private static final Logger LOGGER = Logger.getLogger(SendinblueSmsSender.class);
     private ApiClient apiClient;
 
-    public static SendinblueSmsSender create()
-    {
-        return new SendinblueSmsSender();
-    }
+    public static SendinblueSmsSender create() { return new SendinblueSmsSender(); }
 
     // TODO: Refactor exceptions handling
 
@@ -38,7 +35,8 @@ public class SendinblueSmsSender {
     public void postToSendinblue(
             String sender,
             String recipient,
-            String content
+            String content,
+            boolean hideResponsePayload
     ) throws ApiException {
         TransactionalSmsApi api = new TransactionalSmsApi(apiClient);
 
@@ -50,11 +48,13 @@ public class SendinblueSmsSender {
 
         try {
             SendSms result = api.sendTransacSms(sendTransacSms);
-            LOGGER.infof(result.toString());
+            if (!hideResponsePayload) {
+                LOGGER.infof(result.toString());
+            }
         } catch (ApiException e) {
             LOGGER.errorf("Unable to send transactional SMS for user '%s'", recipient);
             // See https://developers.brevo.com/docs/how-it-works for HTTP response codes
-            LOGGER.errorf("Response with HTTP status code %s and the following body: %s", e.getCode(), e.getResponseBody());
+            throw new ApiException(e.getCode(), e.getResponseBody());
         }
     }
 

@@ -20,7 +20,7 @@ If you are using Apache Maven, build the project using:
 ```
 mvn clean install
 ```
-A file `target/sib-sms-1.0-SNAPSHOT.jar` should be created. Note that I am using java-17-openjdk.
+A file `target/sib-sms-1.0.jar` should be created. Note that I am using java-17-openjdk.
 
 ###### 3. Use it
 
